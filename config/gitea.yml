@@ -1,0 +1,22 @@
+http:
+  services:
+    services-https-gitea:
+      loadBalancer:
+        servers:
+        - url: "http://127.0.0.1:60001"
+  routers:
+    http-gitea:
+      rule: Host(`gitea.local.com`)
+      entryPoints:
+        - http
+      service: dash-noop
+      middlewares:
+        - dash-redirect
+    https-gitea:
+      rule: Host(`gitea.local.com`)
+      entrypoints:
+        - https
+      service: services-https-gitea
+      middlewares:
+        - extranet
+      tls: {}

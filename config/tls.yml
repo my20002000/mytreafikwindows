@@ -1,0 +1,14 @@
+tls:
+  options:
+    default:
+      minVersion: VersionTLS11
+      maxVersion: VersionTLS13
+    requireusertls:
+      minVersion: VersionTLS11
+      maxVersion: VersionTLS13
+  stores:
+    default:
+      defaultCertificate:
+        certFile: E:\traefik\data\ssl\local.com.crt
+        keyFile: E:\traefik\data\ssl\local.com.key
+
